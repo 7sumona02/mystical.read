@@ -28,28 +28,21 @@ Sometimes, letting go is not the end.
 It’s the quiet beginning of something you can’t yet see, but someday will thank yourself for.
 `
 },
-  {
-    id: 'blog2',
-    title: 'blog2',
- content: `
-There comes a moment in life when you realise "the more you try to hold onto something, the more it seems to slip away".
+{
+  id: 'blog2',
+  title: 'The Human Side of Friendship',
+  content: `
+I think it’s not the goodness or badness that brings people together, but the feeling of how human they are.
 
-It’s almost cruel, isn’t it?  
-You try so hard to keep a person close, to keep a dream alive, to hold a memory before it fades, yet life has its own way of teaching us what staying really means. Maybe it’s telling us gently, or sometimes harshly, that we need to let go.
+Because they remind you that you are also human, someone who makes mistakes, hides their fears, carries imperfections, and sometimes feels afraid of not being enough.  
+With them, you can be yourself without worrying about their judgments, because deep down, you know that no matter what, they will try to understand you.
 
-Letting go doesn’t always mean you didn’t care enough.  
-Sometimes, it means you cared so deeply that you forgot to leave space for it to breathe.
+In the end, it’s not about finding perfect people.  
+It’s about finding those who feel alive with you.  
+The ones who make being human feel a little less heavy and a lot more beautiful.
+  `
+},
 
-And you know, I’ve realised that the biggest things in life often have the simplest reasons behind them.  
-We give so much meaning to certain people or moments because, at their core, they were simple. Pure. Real. They made us feel something honest, something unmasked, and in a world that often feels heavy with pretence, that feeling becomes priceless.
-
-It’s strange, isn’t it?  
-We think we need to do more, hold on tighter, prove ourselves constantly. But maybe life isn’t about forcing what we want to stay. Maybe it’s about understanding that what is meant for us will find its place, softly and surely, without us having to exhaust our hearts to keep it.
-
-So, if you’re at that point today, trying to hold on, feeling it slip away, wondering what you did wrong – Breathe.  
-Sometimes, letting go is not the end.  
-It’s the quiet beginning of something you can’t yet see, but someday will thank yourself for.
-`  },
   {
     id: 'blog3',
     title: 'blog3',
@@ -101,7 +94,7 @@ const Page = () => {
               className="w-full rounded-lg" 
               alt="profile" 
             />
-            <p className="text-neutral-100 text-sm pt-3 font-extralight leading-4">
+            <p className="text-neutral-100 text-sm pt-3 leading-4">
               hi! i am sumona. i like anime, music, coffee, designs, alone time & exploring the internet.<br/> 
               mbti:  intj 5w6
             </p>
@@ -116,7 +109,7 @@ const Page = () => {
                 alt="icon" 
               />
             </div>
-            <div className="text-neutral-300 p-4 text-sm flex flex-col underline overflow-auto max-h-[7rem] space-y-1">
+            <div className="text-neutral-300 p-4 text-sm flex flex-col underline overflow-auto max-h-[7.5rem] space-y-1">
               {blogs.map((blog, index) => (
                 <a 
                   key={blog.id}
@@ -125,9 +118,11 @@ const Page = () => {
                     e.preventDefault();
                     setCurrentBlogIndex(index);
                   }}
-                  className={currentBlogIndex === index ? 'text-white font-medium' : ''}
+                  className={currentBlogIndex === index ? 'text-white font-medium lowercase' : 'lowercase'}
                 >
-                  ♡{blog.title}
+                    ♡{blog.title.length > 25 
+                      ? `${blog.title.substring(0, 25)}...` 
+                      : blog.title}
                 </a>
               ))}
             </div>
@@ -137,7 +132,7 @@ const Page = () => {
           <div className="h-[36rem] w-[24rem] bg-neutral-800 rounded-xl border border-black shadow">
             <div className="h-6 w-full absolute inset-0 top-12 bg-gradient-to-b from-neutral-800 to-transparent"></div>
             <div className="w-full flex items-center justify-between pb-2 border-b border-neutral-100 px-4 pt-3 relative">
-              <h2 className="text-neutral-100 text-lg">⤷ {blogs[currentBlogIndex].title}</h2>
+              <h2 className="text-neutral-100 text-lg lowercase">⤷ {blogs[currentBlogIndex].title}</h2>
               <img 
                 src="https://i.postimg.cc/RFwkTcMq/IMG-8851.png" 
                 className="w-8 -rotate-6 translate-y-6 relative z-40" 
